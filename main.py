@@ -36,6 +36,18 @@ assistant_id = 'asst_dGTiNs8TQne7VTBdZ7Gkkaw3'
 # GPT-3.5 version
 # assistant_id = 'asst_Z45R0z1FtzO4VnASmip5BfSL'
 # Start conversation thread
+
+@app.route('/')
+def home():
+    return """
+    <html>
+        <body>
+            <h1>Welcome to Student Help Bot!</h1>
+            <p>Test our bot <a href="https://creator.voiceflow.com/prototype/65935b1489e9856d2ef97f90">here</a>.</p>
+        </body>
+    </html>
+    """
+
 @app.route('/session/createonly', methods=['GET'])
 def start_conversation():
   print("Starting a new conversation...")  # Debugging line
@@ -76,6 +88,8 @@ def create_session_with_ini_msg():
   # return jsonify({"session_id": thread.id})
 
 @app.route('/session/send', methods=['POST'])
+@app.route('/chat', methods=['POST'])
+@app.route('/session/chat', methods=['POST'])
 def send_receive():
   data = request.json
   thread_id = data.get('session_id')
