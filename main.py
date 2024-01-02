@@ -4,7 +4,7 @@ from packaging import version
 from flask import Flask, request, jsonify
 import openai
 from openai import OpenAI
-import functions
+# import functions
 
 # Check OpenAI version is correct
 required_version = version.parse("1.1.1")
